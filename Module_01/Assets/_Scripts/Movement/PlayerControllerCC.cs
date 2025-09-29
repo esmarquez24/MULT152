@@ -11,6 +11,7 @@ public class PlayerControllerCC : MonoBehaviour
     public float walkSpeed = 3.5f;
     public float runSpeed = 6.0f;
     public float crouchSpeed = 1.8f;
+    public float jumpHeight = 2.0f;
 
     [Header("Smoothing")]
     public float accelTime = 0.12f;
@@ -31,10 +32,13 @@ public class PlayerControllerCC : MonoBehaviour
     public float staminaRegenPerSec = 1.0f;
     public float sprintCooldown = 0.25f;
 
+    public bool isGrounded;
+
     CharacterController cc;
     Vector3 velocity;            // world-space velocity we apply via cc.Move
     Vector3 planarVelCurrent;    // current horizontal velocity (x,z)
     Vector3 planarVelRef;        // SmoothDamp ref
+    Vector3 movement;
     float yVel;                  // vertical (gravity)
     float stamina;
     bool isCrouching;
@@ -67,6 +71,13 @@ public class PlayerControllerCC : MonoBehaviour
         bool wantsCrouch = crouchHeld;
         if (wantsCrouch && !isCrouching) StartCrouch();
         else if (!wantsCrouch && isCrouching) TryStand();
+
+        /*if (Input.GetButtonDown("Jump") && controller.isGrounded) //trying to add jump
+        {
+            movement.y = jumpHeight;
+        }*/
+
+        
 
         float targetSpeed = isCrouching ? crouchSpeed : walkSpeed;
         bool canSprint = !isCrouching && stamina > 0.15f && Time.time - lastSprintReleaseTime > sprintCooldown;

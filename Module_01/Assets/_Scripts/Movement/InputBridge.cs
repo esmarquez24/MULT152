@@ -9,6 +9,7 @@ public class InputBridge : MonoBehaviour
     public bool sprintHeld { get; private set; }
     //public bool CrouchPressed { get; private set; } // edge-triggered this frame
     public bool crouchHeld { get; private set; }
+    public bool jumpHeld { get; private set; }
 
     // Optional sensitivity (for Look scaling)
     [Header("Look Tuning")]
@@ -37,7 +38,13 @@ public class InputBridge : MonoBehaviour
     {
         // Edge trigger: fire only on performed
         if (ctx.performed) { crouchHeld = true; } // pressed this frame
-    if (ctx.canceled)  { crouchHeld = false; }
+        if (ctx.canceled)  { crouchHeld = false; }
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed) { jumpHeld = true; }
+        if (ctx.canceled) { jumpHeld = false; }
     }
 
     /*void LateUpdate()
