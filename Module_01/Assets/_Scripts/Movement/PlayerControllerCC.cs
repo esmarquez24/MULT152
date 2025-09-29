@@ -33,6 +33,8 @@ public class PlayerControllerCC : MonoBehaviour
     public float sprintCooldown = 0.25f;
 
     public bool isGrounded;
+    public Vector2 MovementInputVector { get; private set; }
+    //public event Action OnJumpButtonPressed;
 
     CharacterController cc;
     Vector3 velocity;            // world-space velocity we apply via cc.Move
@@ -120,6 +122,13 @@ public class PlayerControllerCC : MonoBehaviour
         SetHeight(crouchHeight);
     }
 
+    /*private void OnJump(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            OnJumpButtonPressed?.Invoke();
+        }
+    }*/
     void TryStand()
     {
         // safety: don't stand up into a ceiling
