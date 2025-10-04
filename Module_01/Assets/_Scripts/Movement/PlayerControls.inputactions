@@ -45,7 +45,7 @@
                 {
                     "name": "Jump",
                     "type": "Button",
-                    "id": "db8c3a78-78ba-49d3-9789-eef3f23b3996",
+                    "id": "4bfed697-3848-47e9-8ecb-027df881db85",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -154,6 +154,17 @@
                 },
                 {
                     "name": "",
+                    "id": "568cab9f-f78f-465f-81eb-90b497d25a15",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "61e9f3dd-6f42-4305-8578-791a54afc227",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
@@ -165,8 +176,30 @@
                 },
                 {
                     "name": "",
-                    "id": "cd2046a8-642c-4ac1-b982-38f726d7161d",
+                    "id": "400d718e-7e09-4abb-a2e3-350f8c21accc",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "509e875d-f9fb-4edf-8783-4223966d12af",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29741536-3c12-49c7-82d6-e84acb54982a",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
