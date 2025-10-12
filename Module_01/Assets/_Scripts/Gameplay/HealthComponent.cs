@@ -7,6 +7,8 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private int startHealth = 100;
     [SerializeField] private HealthConfig config; //drag an SO asset here
 
+    [SerializeField] private UITK_HUD hud;
+
     public int Current { get; private set; }
 
     // Events (publisher)
@@ -43,5 +45,13 @@ public class HealthComponent : MonoBehaviour
         RaiseChanged();
     }
 
-    private void RaiseChanged() => OnHealthChanged?.Invoke(Current, maxHealth);
+    private void RaiseChanged()
+    {
+        OnHealthChanged?.Invoke(Current, maxHealth);
+        
+        if (hud != null)
+        {
+            hud.SetHP(Current, maxHealth);
+        }
+    }
 }

@@ -12,6 +12,10 @@ public class InputBridge : MonoBehaviour
 
     public bool jumpPressed { get; private set; }
 
+    public bool firePressed { get; private set; }
+
+    public bool reloadPressed { get; private set; }
+
     // Optional sensitivity (for Look scaling)
     [Header("Look Tuning")]
     public float lookSensitivity = 1.0f; // multiply mouse/right-stick
@@ -48,9 +52,22 @@ public class InputBridge : MonoBehaviour
         if (ctx.started) jumpPressed = true;
     }
 
+    public void OnFire(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started) firePressed = true;
+    }
+
+    public void OnReload(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started) reloadPressed = true;
+    }
+
+
     void LateUpdate()
     {
         // auto-clear so it's edge-triggered
         jumpPressed = false;
+        firePressed = false;
+        reloadPressed = false;
     }
 }

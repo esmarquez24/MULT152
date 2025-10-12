@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Root" style="flex-direction: column; padding: 8px; translate: 0 990px;">
+        <ui:ProgressBar name="HpBar" highValue="100" value="100" title="HP" />
+        <ui:Label name="AmmoLabel" text="30/30 (90)" />
+    </ui:VisualElement>
+</ui:UXML>
