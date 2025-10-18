@@ -1,0 +1,65 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.overdrive.pbplus/Editor/Resources/USS/ProBuilderPlus_Styles.uss?fileID=7433441132597879392&amp;guid=80838bd41e4cb6047b04461cdea5c7b0&amp;type=3#ProBuilderPlus_Styles" />
+    <Style src="project://database/Packages/com.overdrive.shared/Editor/Resources/UI/Overdrive_GeneralStyles.uss?fileID=7433441132597879392&amp;guid=975ea3c222eca5749a8e2c9f7b65dcbb&amp;type=3#Overdrive_GeneralStyles" />
+    <ui:VisualElement name="ElementSelected" style="flex-grow: 1;">
+        <uie:ColorField value="#00FFFFFF" name="VertexColor" tooltip="Vertex Color" label="Vertex Color" />
+        <uie:ObjectField name="Material" tooltip="Material" label="Material" />
+        <ui:IntegerField value="42" tooltip="Smoothing Group" name="SmoothingGroup" label="Smooth" />
+        <ui:EnumField value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" tooltip="UV Mode" name="UV-AutoManualMode" label="UV Mode" />
+        <ui:VisualElement name="UV-AutoItems" enabled="false">
+            <ui:EnumField value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" tooltip="Fill Mode" name="UV-FillMode" label="Fill" class="vertex-hide edge-hide" />
+            <ui:EnumField value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" tooltip="UV Anchor" name="UV-Anchor" label="Anchor" class="vertex-hide edge-hide" />
+            <ui:VisualElement name="UV-GroupContainer" style="flex-direction: row;">
+                <ui:IntegerField value="42" tooltip="UV Group" name="UV-Group" label="Group" class="vertex-hide edge-hide" style="flex-grow: 1;" />
+                <ui:Button text="Group" name="GroupSelected" style="flex-grow: 0;" />
+                <ui:Button text="-" name="UngroupSelected" style="flex-grow: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="UV-ManualItems" style="flex-direction: column; flex-grow: 1; background-size: 100% 1%; -unity-background-scale-mode: stretch-to-fill;">
+            <ui:FloatField value="42.2" label="Rotation" name="UV-Rotation" />
+            <ui:Vector2Field tooltip="UV Scale" name="UV-Scale" label="Scale" class="vertex-hide edge-hide" />
+            <ui:Vector2Field tooltip="UV Offset" name="UV-Offset" label="Offset" class="vertex-hide edge-hide" />
+            <ui:VisualElement name="PanButtons">
+                <ui:VisualElement name="UV-PanButtons_U" style="flex-direction: row; height: 48px; align-self: stretch;">
+                    <ui:Label text="Pan U " enable-rich-text="false" emoji-fallback-support="false" triple-click-selects-line="false" style="flex-basis: auto; width: auto; height: auto; min-height: auto; -unity-text-align: middle-left;" />
+                    <ui:Button text="1/4&#10;" name="Button1" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/8" name="Button2" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/16" name="Button3" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/64" name="Button4" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/128&#10;" name="Button5" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="UV-PanButtons_V" style="flex-direction: row; height: 48px; align-self: stretch;">
+                    <ui:Label text="Pan V " enable-rich-text="false" emoji-fallback-support="false" triple-click-selects-line="false" style="flex-basis: auto; width: auto; height: auto; min-height: auto; -unity-text-align: middle-left;" />
+                    <ui:Button text="1/4&#10;" name="Button1" style="color: rgb(0, 0, 0); flex-grow: 1; -unity-text-align: middle-center;" />
+                    <ui:Button text="1/8" name="Button2" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/16" name="Button3" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/64" name="Button4" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1/128" name="Button5" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="UV-PanButtons_UTexels" style="flex-direction: row; height: 48px; align-self: stretch;">
+                    <ui:Label text="Pan U Tx " enable-rich-text="false" emoji-fallback-support="false" triple-click-selects-line="false" style="flex-basis: auto; width: auto; height: auto; min-height: auto; -unity-text-align: middle-left;" />
+                    <ui:Button text="256" name="Button1" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="128" name="Button2" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="32" name="Button3" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="8" name="Button4" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1" name="Button5" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="UV-PanButtons_VTexels" style="flex-direction: row; height: 48px; align-self: stretch;">
+                    <ui:Label text="Pan V Tx " enable-rich-text="false" emoji-fallback-support="false" triple-click-selects-line="false" style="flex-basis: auto; width: auto; height: auto; min-height: auto; -unity-text-align: middle-left;" />
+                    <ui:Button text="256" name="Button1" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="128" name="Button2" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="32" name="Button3" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="8" name="Button4" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    <ui:Button text="1" name="Button5" style="color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:Label text="Hold SHIFT to pan opposite direction&#10;" style="-unity-text-align: middle-center; -unity-font-style: italic;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="NoElementSelected">
+        <ui:Label text="Nothing selected" />
+    </ui:VisualElement>
+    <ui:VisualElement name="ObjectMode">
+        <ui:Label text="Object selected" />
+    </ui:VisualElement>
+</ui:UXML>
