@@ -585,9 +585,9 @@ GameObject:
   - component: {fileID: 1408257380345808538}
   - component: {fileID: 6509341439109772408}
   - component: {fileID: 6177805315159859244}
-  - component: {fileID: 6509341439109772411}
   - component: {fileID: 6509341439109772410}
   - component: {fileID: 6509341439109772409}
+  - component: {fileID: 6509341439109772411}
   m_Layer: 0
   m_Name: Player_1P
   m_TagString: Player
@@ -2424,7 +2424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimSpeedDriver
   animator: {fileID: 6509341439109772410}
-  mover: {fileID: 6509341439109772411}
+  mover: {fileID: 0}
 --- !u!95 &6509341439109772410
 Animator:
   serializedVersion: 7
@@ -2459,7 +2459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc9cb1bdf70f1649b063b3c75eff7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerCC_UD
-  input: {fileID: 6509341439109772408}
+  input: {fileID: 0}
   walkSpeed: 3.5
   runSpeed: 6
   crouchSpeed: 1.8
