@@ -36,6 +36,7 @@ public class PlayerControllerCC_UD : MonoBehaviour
     public float staminaDrainPerSec = 1.5f;
     public float staminaRegenPerSec = 1.0f;
     public float sprintCooldown = 0.25f;
+    public bool isSprinting {  get; private set; }
 
     [Header("Jump")]
     public float jumpForce = 8f;
@@ -104,6 +105,7 @@ public class PlayerControllerCC_UD : MonoBehaviour
             animator.SetBool("IsCrouching", isCrouching);
             animator.SetBool("IsGrounded", cc.isGrounded);
             animator.SetBool("IsJumping", !cc.isGrounded);
+            animator.SetBool("IsSprinting", isSprinting);
         }
 
         float targetSpeed = isCrouching ? crouchSpeed : walkSpeed;
@@ -112,11 +114,13 @@ public class PlayerControllerCC_UD : MonoBehaviour
         if (sprintHeld && canSprint && (Mathf.Abs(x) + Mathf.Abs(z) > 0.1f))
         {
             targetSpeed = runSpeed;
+            isSprinting = true;
             stamina = Mathf.Max(0f, stamina - staminaDrainPerSec * Time.deltaTime);
             if (stamina <= 0f) lastSprintReleaseTime = Time.time;
         }
         else
         {
+            isSprinting = false;
             stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSec * Time.deltaTime);
             if (!sprintHeld) lastSprintReleaseTime = Time.time;
         }
