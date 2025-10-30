@@ -6,7 +6,10 @@ public class PlayerControllerCC_UD : MonoBehaviour
 {
     [Header("InputBridge")]
     [SerializeField] private InputBridge input;
-    
+
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
     [Header("Move Speeds")]
     public float walkSpeed = 3.5f;
     public float runSpeed = 6.0f;
@@ -93,6 +96,15 @@ public class PlayerControllerCC_UD : MonoBehaviour
         bool wantsCrouch = crouchHeld;
         if (wantsCrouch && !isCrouching) StartCrouch();
         else if (!wantsCrouch && isCrouching) TryStand();
+
+        if (animator)
+        {
+            animator.SetFloat("Speed", planarVelCurrent.magnitude);
+            animator.SetBool("IsMoving", planarVelCurrent.magnitude > 0.1f);
+            animator.SetBool("IsCrouching", isCrouching);
+            animator.SetBool("IsGrounded", cc.isGrounded);
+            animator.SetBool("IsJumping", !cc.isGrounded);
+        }
 
         float targetSpeed = isCrouching ? crouchSpeed : walkSpeed;
         bool canSprint = !isCrouching && stamina > 0.15f && Time.time - lastSprintReleaseTime > sprintCooldown;
